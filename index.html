@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>leaflet map</title>
+    <link href="https://cdn.jsdelivr.net/npm/fastbootstrap@2.2.0/dist/css/fastbootstrap.min.css" rel="stylesheet" integrity="sha256-V6lu+OdYNKTKTsVFBuQsyIlDiRWiOmtC8VQ8Lzdm2i4=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
+    <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <main class="container my-5">
+        <div class="d-flex my-5">
+            <input id="search-input" type="text" placeholder="Rechercher un lieu..." class="form-control">
+            <button class="btn btn-secondary btn-lg" id="btn-search">Rechercher</button>
+        </div>
+        <div id="map"></div>
+        <div>
+            <div>
+                <form action="">
+                    <input type="hidden" id="latitude" name="latitude" class="form-control my-1">
+                    <input type="hidden" id="longitude" name="longitude" class="form-control my-1">
+                    <button type="submit" class="btn btn-outline-primary btn-lg my-1" id="btn-save-position">Enregistrer la position</button>
+                </form>
+            </div>
+            <div>
+                <button class="btn btn-lg btn-primary" id="btn-route">Voir l'itinéraire</button>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p class="text-center">Homme2Valeur à la prod.&#128083;</p>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="js/index.js"></script>
+    <script>
+        updateLatLng(48.8566, 2.3522)
+        /*action au clic sur le bouton itineraire*/
+        $("#btn-route").click((e)=>{
+            e.preventDefault()
+            openMaps()
+        })
+        /**/
+        $("#btn-search").click((e)=>{
+            searchLocation()
+        })
+        /**/
+        $("#btn-save-position").click((e)=>{
+            if(confirm("Voulez-vous enregistrer votre position ?")){
+
+            }
+        })
+    </script>
+</body>
+</html>
