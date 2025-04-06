@@ -63,10 +63,8 @@ function openMaps() {
         return
     }
     let url = ""
-    // Détecter si l'utilisateur est sur iPhone/iPad
-    if ((navigator.platform.indexOf("iPhone") !== -1) || 
-        (navigator.platform.indexOf("iPad") !== -1) || 
-        (navigator.platform.indexOf("iPod") !== -1)) {
+    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream
+    if (isIOS) {
         url = `https://maps.apple.com/?daddr=${lat},${lng}`
     } 
     else {
